@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    extends: ["eslint:recommended", "plugin:vue/vue3-essential", "prettier"],
+    extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'prettier'],
     env: {
         node: true,
         commonjs: true,
@@ -8,6 +8,6 @@ module.exports = {
         es6: true,
     },
     rules: {
-        indent: "error",
+        indent: 'error',
     },
-};
+}
