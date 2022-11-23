@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const state = {
     items: [],
     favoritesItems: JSON.parse(localStorage.getItem('favorites')) || [],
@@ -11,8 +13,9 @@ const getters = {
 const actions = {
     async getCharacters({ state }) {
         // getting products onMounted
-        const res = await fetch('https://rickandmortyapi.com/api/character')
-        const data = await res.json()
+        const { data } = await axios(
+            'https://rickandmortyapi.com/api/character'
+        )
         let favorites = checkLocal()
         // checking every products if product already has in localStorage
         // then we add favorite true to the product
@@ -29,10 +32,9 @@ const actions = {
     },
     async getCharactersByPage({ state }, page) {
         // updating products page when change the currPage
-        const res = await fetch(
+        const { data } = await axios(
             `https://rickandmortyapi.com/api/character?page=${page}`
         )
-        const data = await res.json()
         let favorites = checkLocal()
         // checking every products if product already has in localStorage
         // then we add favorite true to the product
